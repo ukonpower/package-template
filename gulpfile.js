@@ -184,8 +184,8 @@ function watch(){
 
     gulp.watch( './src/**/*', gulp.series( webpackDev ) );
     gulp.watch( srcDir + '/ts/**/*', gulp.series( webpackDev ) );
-    gulp.watch( srcDir + '/scss/*.scss', gulp.task( sassDev ) );
-    gulp.watch( srcDir + '/html/**/*', gulp.task( copyDevFiles ) );
+    gulp.watch( srcDir + '/scss/**/*.scss', gulp.series( sassDev ) );
+    gulp.watch( srcDir + '/html/**/*', gulp.series( copyDevFiles ) );
 
 }
 
