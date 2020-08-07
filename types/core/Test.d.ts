@@ -1,2 +1,4 @@
-declare var Test: () => void;
-export { Test };
+export declare class Test {
+    constructor();
+    print(): void;
+}

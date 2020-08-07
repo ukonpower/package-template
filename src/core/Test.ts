@@ -6,7 +6,7 @@ export class Test{
 
 	public print(){
 
-		console.log( 'Test class' );
+		console.log( 'Hello' );
 
 	}
 

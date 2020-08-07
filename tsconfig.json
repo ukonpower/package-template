@@ -9,7 +9,9 @@
 		"dom"
 		],
 		"typeRoots": ["node_modules/@types"],
-		"rootDir": "./"
+		"rootDir": "./",
+		"declaration": true,
+		"declarationDir": "./types"
 	},
 	"include": ["./"]
   }
