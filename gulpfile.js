@@ -5,15 +5,13 @@ const browserSync = require( 'browser-sync' );
 const typedoc = require( 'gulp-typedoc' );
 const ts = require( 'gulp-typescript' );
 const rollup = require("rollup");
+const jest = require('jest-cli');
 
 let distDir = './build';
 let srcDir = './src';
 let exampleDir = './examples'
 let typesDir = './types'
 
-/*-------------------
-    rollup
---------------------*/
 
 function buildRollup( config, cb ) {
     
@@ -121,9 +119,15 @@ function reload( cb ) {
     
 }
 
+function test( cb ) {
+
+    jest.run().then( cb() );
+
+}
+
 function watch(){
 
-    gulp.watch( srcDir + '/**/*.ts', gulp.series( buildESModulePackage ) );
+    gulp.watch( srcDir + '/**/*.ts', gulp.series( buildESModulePackage, reload ) );
     gulp.watch( exampleDir + '/**/*', reload );
 
 }
@@ -134,4 +138,5 @@ let develop = gulp.series(
 );
 
 exports.default = develop;
+exports.test = test;
 exports.build = gulp.series( cleanBuildFiles, buildUMDPackage, buildTypes,buildDocs, develop );

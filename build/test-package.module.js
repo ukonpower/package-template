@@ -1,8 +1,9 @@
 var Test = /** @class */ (function () {
     function Test() {
     }
-    Test.prototype.print = function () {
-        console.log('Hello');
+    Test.prototype.getHello = function () {
+        console.log("Hello");
+        return 'Hello';
     };
     return Test;
 }());

@@ -4,9 +4,11 @@ export class Test{
 
 	}
 
-	public print(){
+	public getHello(){
 
-		console.log( 'Hello' );
+		console.log("Hello");
+		
+		return 'Hello';
 
 	}
 
