@@ -69,7 +69,7 @@ function buildUMDPackage( cb ){
     let config = require("./rollup.config");
 
     config.output.format = 'umd';
-    config.output.file = distDir + '/' + info.packageName + '.js';
+    config.output.file = distDir + '/' + info.packageFileName + '.js';
     
     buildRollup( config, cb );
 
@@ -80,7 +80,7 @@ function buildESModulePackage( cb ){
     let config = require("./rollup.config");
 
     config.output.format = 'esm';
-    config.output.file = distDir + '/' + info.packageName + '.module.js';
+    config.output.file = distDir + '/' + info.packageFileName + '.module.js';
     
     buildRollup( config, cb );
 
@@ -94,7 +94,8 @@ function buildDocs( cb ){
             target: "es6",
             out: "./docs/",
             mode: "file",
-            name: info.packageName
+            name: info.packageName,
+    		moduleResolution: "node",
         }))
         .on( 'end', cb );
 
@@ -105,8 +106,11 @@ function brSync(){
     browserSync.init({
         server: {
             baseDir: './',
-            index: exampleDir + '/index.html',
         },
+        notify: false,
+        ghostMode: false,
+        open: 'external',
+        startPath: exampleDir + '/index.html',
     });
 
 }

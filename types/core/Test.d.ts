@@ -1,4 +1,4 @@
 export declare class Test {
     constructor();
-    print(): void;
+    getHello(): string;
 }

@@ -1,4 +1,5 @@
 {
-	"packageName": "test-package",
+	"packageName": "TestPackage",
+	"packageFileName": "test-package",
 	"packageBuildName": "PKG"
 }
